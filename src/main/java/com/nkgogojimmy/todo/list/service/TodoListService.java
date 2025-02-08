@@ -14,6 +14,13 @@ public class TodoListService {
         todoList = new ArrayList<>();
 
         TodoList todoList1 = new TodoList(1,"Learn Spring boot","Learn how to create APIs with Java",false);
+        TodoList todoList2 = new TodoList(2,"Buy Groceries","Buy Milk, Chicken breasts and 60 eggs",false);
+
         todoList.add(todoList1);
+        todoList.add(todoList2);
+    }
+
+    public List<TodoList> getAllTodoLists() {
+        return todoList;
     }
 }
