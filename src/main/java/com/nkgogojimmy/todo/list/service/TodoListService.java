@@ -23,6 +23,7 @@ public class TodoListService {
     public List<TodoList> getAllTodoLists() {
         return todoList;
     }
+
     public TodoList getTask(int id) {
         for(TodoList todo: todoList) {
             if (todo.getId() == id) {
@@ -30,5 +31,10 @@ public class TodoListService {
             }
         }
         return null;
+    }
+
+    public void createTask(TodoList todo) {
+        TodoList todoList1 = new TodoList(todo.getId(),todo.getTask(),todo.getTaskDescription(),todo.isCompleted());
+        todoList.add(todoList1);
     }
 }
