@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,6 +22,15 @@ public class TodoListController {
             return new ResponseEntity<>(todoListService.getAllTodoLists(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("Failed to fetch data",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/tasks/{id}")
+    public ResponseEntity<?> getTaskById(@PathVariable int id) {
+        try {
+            return new ResponseEntity<>(todoListService.getTask(id),HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to get task",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

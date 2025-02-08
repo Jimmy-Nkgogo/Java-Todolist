@@ -23,4 +23,12 @@ public class TodoListService {
     public List<TodoList> getAllTodoLists() {
         return todoList;
     }
+    public TodoList getTask(int id) {
+        for(TodoList todo: todoList) {
+            if (todo.getId() == id) {
+                return todo;
+            }
+        }
+        return null;
+    }
 }
