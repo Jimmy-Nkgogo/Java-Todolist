@@ -42,4 +42,13 @@ public class TodoListController {
         }
     }
 
+    @DeleteMapping("/tasks/{id}")
+    public ResponseEntity<?> deleteTask(@PathVariable int id) {
+        try {
+            todoListService.deleteTask(id);
+            return new ResponseEntity<>("Successfully removed a todo",HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to remove todo",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

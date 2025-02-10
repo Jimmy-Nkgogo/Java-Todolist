@@ -37,4 +37,7 @@ public class TodoListService {
         TodoList todoList1 = new TodoList(todo.getId(),todo.getTask(),todo.getTaskDescription(),todo.isCompleted());
         todoList.add(todoList1);
     }
+    public void deleteTask(int id) {
+        todoList.remove(Integer.valueOf(id));
+    }
 }
